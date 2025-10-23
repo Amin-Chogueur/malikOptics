@@ -13,6 +13,8 @@ defineProps({
   isDark: Boolean,
   isOpen: Boolean,
   isActive: Function,
+  cartQuantity: Number,
+  favoriteQuantity: Number,
 });
 
 const emit = defineEmits(["open", "toggle"]);
@@ -64,6 +66,7 @@ function toggleTheme() {
     <ul class="hidden md:flex justify-center items-center gap-6">
       <li>
         <RouterLink
+          class="relative"
           :class="[
             isActive('/favorite')
               ? 'text-[#2563eb] dark:text-[#60a5fa]'
@@ -71,11 +74,16 @@ function toggleTheme() {
           ]"
           to="/favorite"
         >
-          <HeartIcon class="w-6 h-6" />
+          <HeartIcon class="w-6 h-6" /><span
+            v-if="favoriteQuantity > 0"
+            class="absolute -top-3.5 -right-2.5 bg-blue-600 w-5 h-5 flex justify-center items-center rounded-full text-white"
+            >{{ favoriteQuantity }}</span
+          >
         </RouterLink>
       </li>
       <li>
         <RouterLink
+          class="relative"
           :class="[
             isActive('/cart')
               ? 'text-[#2563eb] dark:text-[#60a5fa]'
@@ -83,7 +91,11 @@ function toggleTheme() {
           ]"
           to="/cart"
         >
-          <ShoppingCartIcon class="w-6 h-6" />
+          <ShoppingCartIcon class="w-6 h-6" /><span
+            v-if="cartQuantity > 0"
+            class="absolute -top-3.5 -right-2.5 bg-blue-600 w-5 h-5 flex justify-center items-center rounded-full text-white"
+            >{{ cartQuantity }}</span
+          >
         </RouterLink>
       </li>
 

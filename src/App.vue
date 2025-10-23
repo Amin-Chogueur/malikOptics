@@ -8,7 +8,7 @@ import Footer from "./components/Footer/Footer.vue";
     class="min-h-screen bg-[#e8eff7] text-[#111827] dark:bg-[#0b1120] dark:text-[#f3f4f6] transition-colors duration-300"
   >
     <Navigation />
-    <main class="max-w-6xl mx-auto px-6 md:px-12 py-10">
+    <main class="max-w-6xl mx-auto px-2 md:px-12 py-10">
       <RouterView />
     </main>
     <Footer />

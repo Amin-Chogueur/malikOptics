@@ -11,6 +11,8 @@ defineProps({
   isDark: Boolean,
   isOpen: Boolean,
   isActive: Function,
+  cartQuantity: Number,
+  favoriteQuantity: Number,
 });
 
 const emit = defineEmits(["close", "toggle"]);
@@ -27,7 +29,7 @@ function toggleTheme() {
   <transition name="slide">
     <div
       v-if="isOpen"
-      class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex"
+      class="fixed z-50 inset-0 bg-black/40 backdrop-blur-sm flex"
       @click.self="closeSidebar"
     >
       <aside
@@ -75,12 +77,21 @@ function toggleTheme() {
           class="flex items-center justify-between mt-8 pt-6 border-t border-gray-300 dark:border-gray-700"
         >
           <div class="flex gap-4">
-            <RouterLink @click="closeSidebar" to="/favorite"
-              ><HeartIcon class="w-6 h-6"
-            /></RouterLink>
-            <RouterLink @click="closeSidebar" to="/cart"
-              ><ShoppingCartIcon class="w-6 h-6"
-            /></RouterLink>
+            <RouterLink class="relative" @click="closeSidebar" to="/favorite"
+              ><HeartIcon class="w-6 h-6" /><span
+                v-if="favoriteQuantity > 0"
+                class="absolute -top-3.5 -right-2.5 bg-blue-600 w-5 h-5 flex justify-center items-center rounded-full text-white"
+                >{{ favoriteQuantity }}</span
+              ></RouterLink
+            >
+            <RouterLink class="relative" @click="closeSidebar" to="/cart"
+              ><ShoppingCartIcon class="w-6 h-6" />
+              <span
+                v-if="cartQuantity > 0"
+                class="absolute -top-3.5 -right-2.5 bg-blue-600 w-5 h-5 flex justify-center items-center rounded-full text-white"
+                >{{ cartQuantity }}</span
+              ></RouterLink
+            >
           </div>
           <button
             @click="toggleTheme"

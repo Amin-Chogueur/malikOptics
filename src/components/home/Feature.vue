@@ -42,11 +42,11 @@
         class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
       >
         <img
-          src="https://images.unsplash.com/photo-1602526432604-029a709e131c?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvbmUlMjBhY2Nlc3Nvcmllc3xlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWcgNFbSEtcWayMzSzf1IXL1r4LfqGxeBCHw&s"
           alt="Accessories"
           class="rounded-md mb-4 w-full h-56 object-cover"
         />
-        <h3 class="text-xl font-semibold mb-2">Accessories</h3>
+        <h3 class="text-xl font-semibold mb-2">Phone Case</h3>
         <p class="text-gray-500 dark:text-gray-400">
           Protect your devices with high-quality covers and more.
         </p>

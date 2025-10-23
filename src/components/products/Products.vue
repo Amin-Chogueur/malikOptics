@@ -52,12 +52,11 @@ function handleFilterChange(newFilters) {
     <Model v-show="showModal" @closeModel="closeModal">
       <ProductsFilter @filter-change="handleFilterChange" />
     </Model>
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 p-6">
-      <!-- Sidebar -->
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 p-3">
       <button
         @click="openModal"
         title="filter"
-        class="fixed left-1 lg:left-10 top-40 flex gap-2 items-center p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition cursor-pointer"
+        class="fixed z-40 left-1 lg:left-10 top-30 flex gap-2 items-center p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition cursor-pointer"
       >
         <FunnelIcon class="w-6 h-6 text-gray-300" />
       </button>
@@ -65,7 +64,7 @@ function handleFilterChange(newFilters) {
       <!-- Products -->
       <div
         v-if="filteredProducts.length > 0"
-        class="flex-1 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        class="flex-1 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
       >
         <Product
           v-for="product in filteredProducts"

@@ -1,8 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import axios from "axios";
 import { useRoute } from "vue-router";
+import Newsletter from "@/components/home/Newsletter.vue";
+import { useCartStore } from "@/stores/cart";
+import { ShoppingCartIcon } from "@heroicons/vue/24/outline";
+import { HeartIcon } from "@heroicons/vue/24/solid";
+import { useFavoriteStore } from "@/stores/favorite";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 const route = useRoute();
@@ -23,7 +28,17 @@ async function getProduct() {
 const { isPending, isError, data, error } = useQuery({
   queryKey: ["product", id], // include id to refetch if it changes
   queryFn: getProduct,
-  staleTime: 0,
+  staleTime: 60000,
+});
+
+const favoriteStore = useFavoriteStore();
+const isAlreadyInFavorite = computed(() => {
+  return favoriteStore.favorite?.find((item) => item?._id === data.value?._id);
+});
+
+const cartStore = useCartStore();
+const isAlreadyInCart = computed(() => {
+  return cartStore.cart.find((item) => item._id === data.value?._id);
 });
 </script>
 
@@ -56,7 +71,7 @@ const { isPending, isError, data, error } = useQuery({
 
     <div
       v-else
-      class="mt-6 max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col md:flex-row gap-8"
+      class="mt-6 max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col md:flex-row gap-8 mb-16"
     >
       <!-- Product Image -->
       <div class="flex-shrink-0 w-full md:w-1/2">
@@ -95,19 +110,31 @@ const { isPending, isError, data, error } = useQuery({
           </span>
         </div>
 
-        <div class="mt-6 flex gap-4">
+        <div class="flex gap-3">
           <button
-            class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition"
+            :disabled="isAlreadyInCart"
+            @click="cartStore.addToCart(data)"
+            class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition cursor-pointer disabled:bg-gray-600 disabled:cursor-not-allowed"
           >
-            Add to Cart
+            <ShoppingCartIcon class="w-5 h-5" />
           </button>
           <button
-            class="px-5 py-2 border border-gray-300 dark:border-gray-700 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            v-if="!isAlreadyInFavorite"
+            @click="favoriteStore.addToFavorite(data)"
+            class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
           >
-            Add to Wishlist
+            <HeartIcon class="w-5 h-5 text-gray-600 dark:text-gray-300" />
+          </button>
+          <button
+            v-else
+            @click="favoriteStore.removeFromFavorite(data._id)"
+            class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
+          >
+            <HeartIcon class="w-5 h-5 dark:text-red-700" />
           </button>
         </div>
       </div>
     </div>
+    <Newsletter />
   </section>
 </template>

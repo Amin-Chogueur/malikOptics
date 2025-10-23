@@ -88,7 +88,7 @@
 
         <!-- Contact Form -->
         <form
-          class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg space-y-6 text-left"
+          class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg space-y-6 text-left"
         >
           <div>
             <label
@@ -134,7 +134,7 @@
 
           <button
             type="submit"
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300"
+            class="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300"
           >
             Send Message
           </button>

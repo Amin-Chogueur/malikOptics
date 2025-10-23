@@ -1,4 +1,5 @@
 <script setup>
+import Newsletter from "@/components/home/Newsletter.vue";
 import Products from "@/components/products/Products.vue";
 
 import { useQuery } from "@tanstack/vue-query";
@@ -9,7 +10,6 @@ const apiUrl = import.meta.env.VITE_API_URL;
 async function getProducts() {
   try {
     const res = await axios.get(apiUrl);
-    console.log(res.data.slice(0, 46));
     return res.data.slice(0, 46);
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -21,7 +21,7 @@ async function getProducts() {
 const { isPending, isError, data, error } = useQuery({
   queryKey: ["products"],
   queryFn: getProducts,
-  staleTime: 0,
+  staleTime: 600000,
 });
 </script>
 
@@ -29,7 +29,7 @@ const { isPending, isError, data, error } = useQuery({
   <section
     class="min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500 py-20"
   >
-    <div class="">
+    <div class="mb-16">
       <h2 class="text-3xl font-semibold text-center">Our Products</h2>
 
       <transition name="fade" mode="out-in">
@@ -58,6 +58,7 @@ const { isPending, isError, data, error } = useQuery({
         <Products v-else :allProducts="data" key="products" />
       </transition>
     </div>
+    <Newsletter />
   </section>
 </template>
 

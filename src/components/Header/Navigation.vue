@@ -1,9 +1,11 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 
 import SideBar from "./SideBar.vue";
 import NavBar from "./NavBar.vue";
+import { useCartStore } from "@/stores/cart";
+import { useFavoriteStore } from "@/stores/favorite";
 
 const isDark = ref(false);
 const isOpen = ref(false);
@@ -32,6 +34,16 @@ function handleClose() {
 function handleOpen() {
   isOpen.value = true;
 }
+
+const favoriteStore = useFavoriteStore();
+const favoriteQuantity = computed(() => {
+  return favoriteStore.favorite.length;
+});
+
+const cartStore = useCartStore();
+const cartQuantity = computed(() => {
+  return cartStore.cart.length;
+});
 </script>
 
 <template>
@@ -42,6 +54,8 @@ function handleOpen() {
     :isDark="isDark"
     @open="handleOpen"
     @toggle="toggleTheme"
+    :cartQuantity="cartQuantity"
+    :favoriteQuantity="favoriteQuantity"
   />
 
   <!-- Sidebar (Mobile) -->
@@ -51,5 +65,7 @@ function handleOpen() {
     :isActive="isActive"
     @close="handleClose"
     @toggle="toggleTheme"
+    :cartQuantity="cartQuantity"
+    :favoriteQuantity="favoriteQuantity"
   />
 </template>

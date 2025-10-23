@@ -4,7 +4,7 @@
 
 <template>
   <section
-    class="h-[calc(100vh-80px)] flex flex-col md:flex-row items-center justify-between gap-10 text-[#111827] dark:text-[#f3f4f6] transition-colors duration-500"
+    class="h-[calc(100vh-80px)] flex flex-col md:flex-row items-center justify-between gap-10 text-[#111827] dark:text-[#f3f4f6] transition-colors duration-500 mt-16 md:mt-10"
   >
     <!-- Text Content -->
     <div class="flex-1 space-y-6">

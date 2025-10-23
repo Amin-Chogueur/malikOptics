@@ -2,13 +2,23 @@
 import { ref } from "vue";
 
 const email = ref("");
+const errors = ref({});
+const isPending = ref(false);
 const success = ref(false);
 
-function subscribe() {
-  if (email.value) {
-    success.value = true;
+async function subscribe() {
+  if (!email.value.includes("@")) {
+    errors.value.email = "Please enter a valid email.";
+  } else {
+    errors.value.email = "";
+
     email.value = "";
-    setTimeout(() => (success.value = false), 4000);
+    isPending.value = true;
+    await new Promise((r) => setTimeout(r, 2000));
+    isPending.value = false;
+    success.value = true;
+    await new Promise((r) => setTimeout(r, 4000));
+    success.value = false;
   }
 }
 </script>
@@ -43,7 +53,7 @@ function subscribe() {
       </p>
 
       <form
-        class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        class="flex flex-col sm:flex-row justify-center gap-4"
         @submit.prevent="subscribe"
       >
         <input
@@ -51,16 +61,17 @@ function subscribe() {
           v-model="email"
           placeholder="Enter your email"
           class="w-full sm:flex-1 px-4 py-3 rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-800 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-          required
         />
+
         <button
           type="submit"
-          class="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition rounded-lg font-semibold text-white shadow-md hover:shadow-lg"
+          :disabled="isPending"
+          class="cursor-pointer w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition rounded-lg font-semibold text-white shadow-md hover:shadow-lg disabled:bg-gray-600"
         >
-          Subscribe
+          {{ isPending ? "Subscribtion..." : "Subscribe" }}
         </button>
       </form>
-
+      <p v-if="errors.email" class="text-red-500">{{ errors.email }}</p>
       <p
         v-if="success"
         class="mt-4 text-green-600 dark:text-green-400 font-medium transition"
