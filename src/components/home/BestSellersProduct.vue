@@ -27,11 +27,14 @@ const isAlreadyInCart = computed(() => {
   <div
     class="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition overflow-hidden"
   >
-    <img
-      :src="props.product.image"
-      :alt="props.product.name"
-      class="w-full h-auto object-cover"
-    />
+    <div class="overflow-hidden">
+      <img
+        :src="props.product.image"
+        :alt="props.product.name"
+        class="w-full h-auto object-cover hover:scale-110 transition-all duration-300"
+      />
+    </div>
+
     <div class="p-5">
       <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">
         {{ props.product.title }}
@@ -52,7 +55,7 @@ const isAlreadyInCart = computed(() => {
           @click="favoriteStore.removeFromFavorite(props.product._id)"
           class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
         >
-          <HeartIcon class="w-5 h-5 dark:text-red-700" />
+          <HeartIcon class="w-5 h-5 text-red-700" />
         </button>
 
         <button

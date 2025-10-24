@@ -1,7 +1,11 @@
 <script setup>
+import { useCartStore } from "@/stores/cart";
 import { useFavoriteStore } from "@/stores/favorite";
-import { HeartIcon, XMarkIcon } from "@heroicons/vue/24/solid";
-import { defineProps, defineEmits } from "vue";
+import { ShoppingCartIcon } from "@heroicons/vue/24/outline";
+import { XMarkIcon } from "@heroicons/vue/24/solid";
+import { EyeIcon } from "@heroicons/vue/24/outline";
+import { defineProps, computed } from "vue";
+import { RouterLink } from "vue-router";
 
 const props = defineProps({
   item: {
@@ -11,6 +15,10 @@ const props = defineProps({
 });
 
 const favoriteStore = useFavoriteStore();
+const cartStore = useCartStore();
+const isAlreadyInCart = computed(() => {
+  return cartStore.cart.find((item) => item._id === props.item._id);
+});
 </script>
 
 <template>
@@ -34,5 +42,20 @@ const favoriteStore = useFavoriteStore();
     >
       <XMarkIcon class="w-5 h-5" />
     </button>
+    <div class="absolute bottom-2 right-2 flex items-center gap-2">
+      <RouterLink
+        :to="`/products/${item._id}`"
+        class="border border-[#2563eb] dark:border-[#60a5fa] text-[#2563eb] dark:text-[#60a5fa] hover:bg-[#2563eb] hover:text-white dark:hover:bg-[#60a5fa] dark:hover:text-[#0b1120] font-medium p-2 rounded-lg transition-colors duration-300"
+      >
+        <EyeIcon class="w-4.5 h-4.5" />
+      </RouterLink>
+      <button
+        :disabled="isAlreadyInCart"
+        @click="cartStore.addToCart(item)"
+        class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition cursor-pointer disabled:bg-gray-600 disabled:cursor-not-allowed"
+      >
+        <ShoppingCartIcon class="w-5 h-5" />
+      </button>
+    </div>
   </div>
 </template>

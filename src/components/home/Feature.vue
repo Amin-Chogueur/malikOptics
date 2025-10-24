@@ -37,7 +37,7 @@
         </p>
       </div>
 
-      <!-- Accessories -->
+      <!-- Phone -->
       <div
         class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
       >

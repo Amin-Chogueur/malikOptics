@@ -48,7 +48,7 @@ const isAlreadyInCart = computed(() => {
   >
     <RouterLink
       to="/products"
-      class="text-blue-400 hover:text-blue-500 underline"
+      class="text-blue-600 dark:text-blue-400 underline"
       >&larr; All Products</RouterLink
     >
     <!-- 🕒 Loading State -->
@@ -130,7 +130,7 @@ const isAlreadyInCart = computed(() => {
             @click="favoriteStore.removeFromFavorite(data._id)"
             class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
           >
-            <HeartIcon class="w-5 h-5 dark:text-red-700" />
+            <HeartIcon class="w-5 h-5 text-red-700" />
           </button>
         </div>
       </div>

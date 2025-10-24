@@ -33,7 +33,7 @@ const cartStore = useCartStore();
           />
         </div>
 
-        <div v-else class="text-center py-10 text-gray-500">
+        <div v-else class="text-center py-6 text-gray-500">
           Your cart is empty 🛒
         </div>
       </div>
@@ -60,7 +60,7 @@ const cartStore = useCartStore();
         </div>
 
         <!-- Checkout Form -->
-        <CheckoutForm />
+        <CheckoutForm v-if="cartStore.cart.length > 0" />
       </aside>
     </div>
   </section>

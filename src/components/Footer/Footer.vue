@@ -42,9 +42,12 @@ async function subscribe() {
           <DevicePhoneMobileIcon
             class="w-7 h-7 text-blue-600 dark:text-blue-400"
           />
-          <h2 class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+          <RouterLink
+            to="/"
+            class="text-2xl font-bold text-blue-600 dark:text-blue-400"
+          >
             VuePhone
-          </h2>
+          </RouterLink>
         </div>
         <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
           Your trusted destination for premium smartphones, smartwatches, and

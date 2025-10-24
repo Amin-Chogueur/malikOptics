@@ -8,7 +8,7 @@ const favoriteStore = useFavoriteStore();
 
 <template>
   <section class="min-h-screen px-4 text-gray-800 dark:text-gray-200 py-20">
-    <h2 class="text-2xl font-bold text-center mb-14">❤️ Favorite Items 💔</h2>
+    <h2 class="text-2xl font-bold text-center mb-14">❤️ Favorite Items ❤️</h2>
 
     <div
       v-if="favoriteStore.favorite.length > 0"

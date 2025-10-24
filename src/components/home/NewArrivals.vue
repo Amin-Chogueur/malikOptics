@@ -24,11 +24,14 @@ defineProps({
           :key="item.id"
           class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition overflow-hidden"
         >
-          <img
-            :src="item.image"
-            :alt="item.name"
-            class="w-full h-auto object-cover"
-          />
+          <div class="overflow-hidden">
+            <img
+              :src="item.image"
+              :alt="item.name"
+              class="w-full h-auto object-cover hover:scale-110 transition-all duration-300"
+            />
+          </div>
+
           <div class="p-4 text-center">
             <h3
               class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1"

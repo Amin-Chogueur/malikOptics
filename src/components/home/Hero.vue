@@ -1,17 +1,12 @@
-<script setup>
-// No logic needed — purely presentational
-</script>
-
 <template>
   <section
     class="h-[calc(100vh-80px)] flex flex-col md:flex-row items-center justify-between gap-10 text-[#111827] dark:text-[#f3f4f6] transition-colors duration-500 mt-16 md:mt-10"
   >
-    <!-- Text Content -->
     <div class="flex-1 space-y-6">
       <h1 class="text-2xl md:text-4xl font-extrabold leading-tight">
         Discover the Latest
-        <span class="text-[#2563eb] dark:text-[#60a5fa]">Smartphones</span
-        >,<br />
+        <span class="text-[#2563eb] dark:text-[#60a5fa]">Smartphones</span>,
+        <br />
         <span class="text-[#2563eb] dark:text-[#60a5fa]">Watches</span>, and
         <span class="text-[#2563eb] dark:text-[#60a5fa]">Protection</span>
         Accessories
@@ -45,7 +40,7 @@
       <img
         src="https://www.macworld.com/wp-content/uploads/2023/01/android-wear-iphone-lead-100728986-orig.jpg?quality=50&strip=all"
         alt="Latest smartphones and accessories"
-        class="w-full max-w-md rounded-2xl shadow-2xl object-cover"
+        class="w-full max-w-md rounded-2xl shadow-2xl object-cover floating"
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"
@@ -53,3 +48,21 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-22px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+</style>

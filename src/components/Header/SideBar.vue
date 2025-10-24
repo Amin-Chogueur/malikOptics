@@ -6,7 +6,7 @@ import {
   ShoppingCartIcon,
   SunIcon,
 } from "@heroicons/vue/24/outline";
-import { RouterLink } from "vue-router";
+import { RouterLink, RouterView } from "vue-router";
 defineProps({
   isDark: Boolean,
   isOpen: Boolean,
@@ -37,9 +37,12 @@ function toggleTheme() {
       >
         <div>
           <div class="flex justify-between items-center mb-8">
-            <h2 class="text-2xl font-bold text-[#2563eb] dark:text-[#60a5fa]">
+            <RouterView
+              to="/"
+              class="text-2xl font-bold text-[#2563eb] dark:text-[#60a5fa]"
+            >
               VuePhone
-            </h2>
+            </RouterView>
             <button @click="closeSidebar">
               <XMarkIcon class="w-6 h-6" />
             </button>
