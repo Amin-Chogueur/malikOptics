@@ -1,5 +1,7 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
+import { useToast } from "vue-toastification";
+const toast = useToast();
 
 export const useFavoriteStore = defineStore(
   "favorite",
@@ -12,6 +14,7 @@ export const useFavoriteStore = defineStore(
         return;
       } else {
         favorite.value.push(product);
+        toast.success("✅ Product added to wishlist successfully!");
       }
     }
     function removeFromFavorite(id) {

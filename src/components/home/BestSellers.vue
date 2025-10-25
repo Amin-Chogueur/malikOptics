@@ -1,5 +1,5 @@
 <script setup>
-import BestSellersProduct from "./BestSellersProduct.vue";
+import Product from "../products/Product.vue";
 
 defineProps({
   bestSellers: {
@@ -19,9 +19,9 @@ defineProps({
       </h2>
 
       <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <BestSellersProduct
+        <Product
           v-for="product in bestSellers"
-          :key="product.id"
+          :key="product._id"
           :product="product"
         />
       </div>

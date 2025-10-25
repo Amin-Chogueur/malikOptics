@@ -70,6 +70,7 @@ function handleFilterChange(newFilters) {
           v-for="product in filteredProducts"
           :key="product._id"
           :product="product"
+          :componentType="'product'"
         />
       </div>
     </div>

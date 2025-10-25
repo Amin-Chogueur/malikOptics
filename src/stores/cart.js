@@ -1,6 +1,7 @@
 import { computed, ref } from "vue";
 import { defineStore } from "pinia";
-
+import { useToast } from "vue-toastification";
+const toast = useToast();
 export const useCartStore = defineStore(
   "cart",
   () => {
@@ -14,6 +15,7 @@ export const useCartStore = defineStore(
         return;
       } else {
         cart.value.push(product);
+        toast.success("✅ Product added to cart successfully!");
       }
     }
     function removeFromCart(id) {

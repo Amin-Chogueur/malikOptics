@@ -1,7 +1,8 @@
 <script setup>
 import { useCartStore } from "@/stores/cart";
 import { ref } from "vue";
-
+import { useToast } from "vue-toastification";
+const toast = useToast();
 const cartStore = useCartStore();
 
 const form = ref({
@@ -13,7 +14,6 @@ const form = ref({
 
 const errors = ref({});
 const isPending = ref(false);
-const success = ref(false);
 
 async function submitOrder() {
   if (!form.value.email.includes("@")) {
@@ -29,14 +29,16 @@ async function submitOrder() {
     errors.value.address = "Please enter your address.";
   } else {
     errors.value = {};
-    cartStore.clearCart();
+
     form.value = { fullName: "", email: "", phone: "", address: "" }; // reset form
     isPending.value = true;
     await new Promise((r) => setTimeout(r, 2000));
     isPending.value = false;
-    success.value = true;
-    await new Promise((r) => setTimeout(r, 4000));
-    success.value = false;
+    toast.success(
+      "🎉 Thank you! Thank you! Your order has been placed successfully."
+    );
+    await new Promise((r) => setTimeout(r, 1000));
+    cartStore.clearCart();
   }
 }
 </script>
@@ -102,13 +104,6 @@ async function submitOrder() {
       >
         {{ isPending ? " Submition..." : "Submit Order" }}
       </button>
-
-      <p
-        v-if="success"
-        class="mt-4 text-green-600 dark:text-green-400 font-medium transition"
-      >
-        🎉 Thank you! Thank you! Your order has been placed successfully.
-      </p>
     </form>
   </div>
 </template>
