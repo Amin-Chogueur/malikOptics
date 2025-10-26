@@ -41,7 +41,7 @@ function toggleTheme() {
               to="/"
               class="text-2xl font-bold text-[#2563eb] dark:text-[#60a5fa]"
             >
-              VuePhone
+              MalikOptics
             </RouterView>
             <button @click="closeSidebar">
               <XMarkIcon class="w-6 h-6" />
@@ -50,7 +50,14 @@ function toggleTheme() {
 
           <ul class="space-y-6 text-lg">
             <li
-              v-for="link in ['/', '/products', '/about', '/contact']"
+              v-for="link in [
+                '/',
+                '/Homme',
+                '/Femme',
+                '/Enfant',
+                '/A_propos',
+                '/contact',
+              ]"
               :key="link"
             >
               <RouterLink
@@ -64,11 +71,15 @@ function toggleTheme() {
               >
                 {{
                   link === "/"
-                    ? "Home"
-                    : link === "/products"
-                    ? "Products"
-                    : link === "/about"
-                    ? "About"
+                    ? "Accueil"
+                    : link === "/Homme"
+                    ? "Lunettes Homme"
+                    : link === "/Femme"
+                    ? "Lunettes Femme"
+                    : link === "/Enfant"
+                    ? "Lunettes Enfant"
+                    : link === "/A_propos"
+                    ? "À propos"
                     : "Contact"
                 }}
               </RouterLink>

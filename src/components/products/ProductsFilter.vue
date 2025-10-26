@@ -1,45 +1,29 @@
 <script setup>
-import { ref, watch, defineEmits, computed } from "vue";
+import { ref, watch, defineEmits } from "vue";
 const emit = defineEmits(["filter-change"]);
 
 const selectedCategory = ref("all");
 const selectedBrand = ref("all");
-const maxPrice = ref(2000);
+const maxPrice = ref(240);
 
-const categories = ref(["all", "phone", "phone case", "watch"]);
+const categories = ref(["all", "Lunettes de vue", "Lunettes de soleil"]);
+
 const brands = ref([
-  { phone: ["Apple", "Samsung", "Asuz"] },
-  {
-    "phone case": [
-      "Artistic",
-      "Trandafiri",
-      "Lavish",
-      "Albinuta",
-      "Next Door",
-      "Shield",
-      " Joker",
-      "Samsung",
-    ],
-  },
-  { watch: ["Apple", "Coros-apex", "Fossil", "Google", "Huawe"] },
+  "Gucci",
+  "Oakley",
+  "Prada",
+  "Dior",
+  "Versace",
+  "Chanel",
+  "Hugo Boss",
+  "Polaroid",
+  "RayBan",
+  "Persol",
 ]);
-
-const computedBrands = computed(() => {
-  if (selectedCategory.value === "all") {
-    return brands.value.flatMap((b) => Object.values(b)[0]);
-  }
-  return Array.from(
-    Object.values(
-      brands.value.filter((brand) =>
-        selectedCategory.value === "all" ? brand : brand[selectedCategory.value]
-      )[0]
-    )[0]
-  );
-});
 
 watch([selectedCategory, selectedBrand, maxPrice], () => {
   emit("filter-change", {
-    category: selectedCategory.value,
+    familly: selectedCategory.value,
     brand: selectedBrand.value,
     maxPrice: maxPrice.value,
   });
@@ -78,7 +62,7 @@ watch([selectedCategory, selectedBrand, maxPrice], () => {
           class="w-full px-3 py-2 rounded-lg border text-gray-700"
         >
           <option value="all">All</option>
-          <option v-for="brand in computedBrands" :value="brand">
+          <option v-for="brand in brands" :value="brand">
             {{ brand }}
           </option>
         </select>
@@ -91,8 +75,8 @@ watch([selectedCategory, selectedBrand, maxPrice], () => {
           type="range"
           v-model="maxPrice"
           min="0"
-          max="3000"
-          step="50"
+          max="240"
+          step="10"
           class="w-full accent-indigo-600"
         />
         <p class="text-sm text-gray-600 mt-1">

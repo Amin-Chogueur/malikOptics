@@ -24,15 +24,15 @@ const props = defineProps({
 });
 const products = ref(props.allProducts);
 const filters = ref({
-  category: "all",
+  familly: "all",
   brand: "all",
-  maxPrice: 2000,
+  maxPrice: 240,
 });
 
 const filteredProducts = computed(() => {
   return products.value.filter((p) => {
     const byCategory =
-      filters.value.category === "all" || p.category === filters.value.category;
+      filters.value.familly === "all" || p.familly === filters.value.familly;
     const byBrand =
       filters.value.brand === "all" || p.brand === filters.value.brand;
     const byPrice = p.price <= filters.value.maxPrice;
@@ -64,13 +64,12 @@ function handleFilterChange(newFilters) {
       <!-- Products -->
       <div
         v-if="filteredProducts.length > 0"
-        class="flex-1 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        class="flex-1 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         <Product
           v-for="product in filteredProducts"
-          :key="product._id"
+          :key="product.id"
           :product="product"
-          :componentType="'product'"
         />
       </div>
     </div>

@@ -1,15 +1,15 @@
 <script setup></script>
 <template>
   <section class="py-20">
-    <div class="max-w-6xl mx-auto px-4 text-center">
+    <div class="max-w-6xl mx-auto text-center">
       <h2
         class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4"
       >
-        Get in Touch
+        Contactez-nous
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-        Have a question, feedback, or partnership idea? We'd love to hear from
-        you!
+        Une question, un avis ou une idée de collaboration ? L’équipe de
+        <strong>Malik Opticien</strong> serait ravie d’échanger avec vous !
       </p>
 
       <div class="grid md:grid-cols-2 gap-10">
@@ -33,7 +33,7 @@
             <div>
               <h4 class="font-semibold text-gray-800 dark:text-white">Email</h4>
               <p class="text-gray-600 dark:text-gray-300">
-                support@vuephone.com
+                contact@malikopticien.com
               </p>
             </div>
           </div>
@@ -54,8 +54,10 @@
               />
             </svg>
             <div>
-              <h4 class="font-semibold text-gray-800 dark:text-white">Phone</h4>
-              <p class="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+              <h4 class="font-semibold text-gray-800 dark:text-white">
+                Téléphone
+              </h4>
+              <p class="text-gray-600 dark:text-gray-300">+213 555 123 456</p>
             </div>
           </div>
 
@@ -77,10 +79,10 @@
             </svg>
             <div>
               <h4 class="font-semibold text-gray-800 dark:text-white">
-                Address
+                Adresse
               </h4>
               <p class="text-gray-600 dark:text-gray-300">
-                123 Vue Street, Paris, France
+                45 Rue de la Vision, Alger, Algérie
               </p>
             </div>
           </div>
@@ -94,12 +96,12 @@
             <label
               for="name"
               class="block text-gray-700 dark:text-gray-200 mb-2 font-medium"
-              >Name</label
+              >Nom</label
             >
             <input
               type="text"
               id="name"
-              placeholder="Your name"
+              placeholder="Votre nom"
               class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400"
             />
           </div>
@@ -113,7 +115,7 @@
             <input
               type="email"
               id="email"
-              placeholder="you@example.com"
+              placeholder="vous@example.com"
               class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400"
             />
           </div>
@@ -127,8 +129,8 @@
             <textarea
               id="message"
               rows="4"
-              placeholder="Write your message..."
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 focus:outline- placeholder:text-gray-400"
+              placeholder="Écrivez votre message..."
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400"
             ></textarea>
           </div>
 
@@ -136,7 +138,7 @@
             type="submit"
             class="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300"
           >
-            Send Message
+            Envoyer le message
           </button>
         </form>
       </div>

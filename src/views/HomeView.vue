@@ -30,10 +30,10 @@ const { isPending, isError, data, error } = useQuery({
 });
 
 const bestSellers = computed(() => {
-  return data.value?.slice(0, 8) || [];
+  return data.value?.slice(0, 6) || [];
 });
 const newArrivals = computed(() => {
-  return data.value?.slice(0, 4) || [];
+  return data.value?.slice(8, 11) || [];
 });
 </script>
 <template>

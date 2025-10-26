@@ -10,26 +10,40 @@ export const useCartStore = defineStore(
       return cart.value.reduce((acu, cur) => acu + cur.quantity * cur.price, 0);
     });
     function addToCart(product) {
-      const isExist = cart.value.find((item) => item.id === product._id);
+      const isExist = cart.value.find(
+        (item) =>
+          item.id === product.id && item.colors.name === product.colors.name
+      );
       if (isExist) {
         return;
       } else {
-        cart.value.push(product);
-        toast.success("✅ Product added to cart successfully!");
+        const newItem = {
+          ...product,
+          quantity: 1,
+        };
+        cart.value.push(newItem);
+        toast.success("Produit ajouté au panier avec succès !");
       }
     }
-    function removeFromCart(id) {
-      cart.value = cart.value.filter((item) => item._id !== id);
-    }
-
-    function increaseQuantity(id) {
-      cart.value = cart.value.map((item) =>
-        item._id === id ? { ...item, quantity: item.quantity + 1 } : item
+    function removeFromCart(product) {
+      cart.value = cart.value.filter(
+        (item) =>
+          !(item.id === product.id && item.colors.name === product.colors.name)
       );
     }
-    function decreaseQuantity(id) {
+
+    function increaseQuantity(product) {
       cart.value = cart.value.map((item) =>
-        item._id === id && item.quantity > 1
+        item.id === product.id && item.colors.name === product.colors.name
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    }
+    function decreaseQuantity(product) {
+      cart.value = cart.value.map((item) =>
+        item.id === product.id &&
+        item.colors.name === product.colors.name &&
+        item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item
       );
@@ -53,7 +67,7 @@ export const useCartStore = defineStore(
       enabled: true,
       strategies: [
         {
-          key: "vuephone-cart",
+          key: "vueGlasses-cart",
           storage: localStorage,
         },
       ],

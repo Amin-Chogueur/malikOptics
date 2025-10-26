@@ -1,5 +1,4 @@
 <script setup>
-import { RouterLink } from "vue-router";
 import Product from "../products/Product.vue";
 
 defineProps({
@@ -16,14 +15,15 @@ defineProps({
       <h2
         class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-gray-100"
       >
-        New Arrivals
+        Nouveautés
       </h2>
 
-      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
         <Product
           v-for="product in newArrivals"
-          :key="product._id"
+          :key="product.id"
           :product="product"
+          :view="'home'"
         />
       </div>
     </div>

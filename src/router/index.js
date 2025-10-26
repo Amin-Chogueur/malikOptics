@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AboutView from "@/views/AboutView.vue";
 import HomeView from "@/views/HomeView.vue";
-import ProductsView from "@/views/ProductsView.vue";
 import ContactView from "@/views/ContactView.vue";
 import FavoriteView from "@/views/FavoriteView.vue";
 import CartView from "@/views/CartView.vue";
+import MenView from "@/views/MenView.vue";
+import WomenView from "@/views/WomenView.vue";
+import KidsView from "@/views/KidsView.vue";
 import ProductDetails from "@/views/ProductDetails.vue";
 
 const router = createRouter({
@@ -16,18 +18,38 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/about",
+      path: "/A_propos",
       name: "About",
       component: AboutView,
     },
     {
-      path: "/products",
-      name: "Products",
-      component: ProductsView,
+      path: "/Homme",
+      name: "Men",
+      component: MenView,
     },
     {
-      path: "/products/:id",
-      name: "ProductDetails",
+      path: "/Homme/:id",
+      name: "MenProductDetails",
+      component: ProductDetails,
+    },
+    {
+      path: "/Femme",
+      name: "Women",
+      component: WomenView,
+    },
+    {
+      path: "/Femme/:id",
+      name: "WomenProductDetails",
+      component: ProductDetails,
+    },
+    {
+      path: "/Enfant",
+      name: "Kids",
+      component: KidsView,
+    },
+    {
+      path: "/Enfant/:id",
+      name: "KidsProductDetails",
       component: ProductDetails,
     },
     {
@@ -35,11 +57,13 @@ const router = createRouter({
       name: "Contact",
       component: ContactView,
     },
+
     {
       path: "/favorite",
       name: "Favorite",
       component: FavoriteView,
     },
+
     {
       path: "/cart",
       name: "Cart",

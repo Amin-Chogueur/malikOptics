@@ -45,11 +45,11 @@ async function subscribe() {
       <h2
         class="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white"
       >
-        Get 10% Off Your First Order
+        Obtenez 10% de réduction sur votre première commande
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-8 text-sm sm:text-base">
-        Subscribe to our newsletter and be the first to know about new arrivals,
-        sales, and exclusive offers.
+        Abonnez-vous à notre newsletter et soyez le premier à découvrir nos
+        nouveautés, ventes et offres exclusives.
       </p>
 
       <form
@@ -59,7 +59,7 @@ async function subscribe() {
         <input
           type="email"
           v-model="email"
-          placeholder="Enter your email"
+          placeholder="Entrez votre email"
           class="w-full sm:flex-1 px-4 py-3 rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-800 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
         />
 
@@ -68,7 +68,7 @@ async function subscribe() {
           :disabled="isPending"
           class="cursor-pointer w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition rounded-lg font-semibold text-white shadow-md hover:shadow-lg disabled:bg-gray-600"
         >
-          {{ isPending ? "Subscribtion..." : "Subscribe" }}
+          {{ isPending ? "Envoi..." : "S'abonner" }}
         </button>
       </form>
       <p v-if="errors.email" class="text-red-500">{{ errors.email }}</p>
@@ -76,7 +76,7 @@ async function subscribe() {
         v-if="success"
         class="mt-4 text-green-600 dark:text-green-400 font-medium transition"
       >
-        🎉 Thank you for subscribing!
+        🎉 Merci pour votre abonnement !
       </p>
     </div>
   </section>

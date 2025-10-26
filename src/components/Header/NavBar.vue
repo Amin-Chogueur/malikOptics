@@ -36,12 +36,22 @@ function toggleTheme() {
       to="/"
       class="text-2xl font-extrabold tracking-wide text-[#2563eb] dark:text-[#60a5fa]"
     >
-      VuePhone
+      MalikOptics
     </RouterLink>
 
     <!-- Desktop Links -->
-    <ul class="hidden md:flex flex-1 justify-center items-center gap-8">
-      <li v-for="link in ['/', '/products', '/about', '/contact']" :key="link">
+    <ul class="hidden lg:flex flex-1 justify-center items-center gap-8">
+      <li
+        v-for="link in [
+          '/',
+          '/Homme',
+          '/Femme',
+          '/Enfant',
+          '/A_propos',
+          '/contact',
+        ]"
+        :key="link"
+      >
         <RouterLink
           :to="link"
           :class="[
@@ -52,11 +62,15 @@ function toggleTheme() {
         >
           {{
             link === "/"
-              ? "Home"
-              : link === "/products"
-              ? "Products"
-              : link === "/about"
-              ? "About"
+              ? "Accueil"
+              : link === "/Homme"
+              ? "Lunettes Homme"
+              : link === "/Femme"
+              ? "Lunettes Femme"
+              : link === "/Enfant"
+              ? "Lunettes Enfant"
+              : link === "/A_propos"
+              ? "À propos"
               : "Contact"
           }}
         </RouterLink>
@@ -64,7 +78,7 @@ function toggleTheme() {
     </ul>
 
     <!-- Icons -->
-    <ul class="hidden md:flex justify-center items-center gap-6">
+    <ul class="hidden lg:flex justify-center items-center gap-6">
       <li>
         <RouterLink
           class="relative"
@@ -113,7 +127,7 @@ function toggleTheme() {
     </ul>
 
     <!-- Mobile Menu Button -->
-    <button @click="openSidebar" class="md:hidden">
+    <button @click="openSidebar" class="lg:hidden">
       <Bars3Icon class="w-7 h-7 text-[#2563eb] dark:text-[#60a5fa]" />
     </button>
   </nav>

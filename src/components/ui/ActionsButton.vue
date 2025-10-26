@@ -10,18 +10,32 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  currentColor: {
+    type: String,
+    required: true,
+  },
 });
 
 const favoriteStore = useFavoriteStore();
 const isAlreadyInFavorite = computed(() => {
-  return favoriteStore.favorite?.find(
-    (item) => item?._id === props.product._id
-  );
+  return favoriteStore.favorite?.find((item) => item?.id === props.product.id);
 });
 
 const cartStore = useCartStore();
 const isAlreadyInCart = computed(() => {
-  return cartStore.cart.find((item) => item._id === props.product._id);
+  return cartStore.cart.find(
+    (item) =>
+      item.id === props.product.id && item.colors.name === props.currentColor
+  );
+});
+
+const currentProduct = computed(() => {
+  return {
+    ...props.product,
+    colors: props.product.colors.find(
+      (color) => color.name === props.currentColor
+    ),
+  };
 });
 </script>
 <template>
@@ -35,14 +49,14 @@ const isAlreadyInCart = computed(() => {
     </button>
     <button
       v-else
-      @click="favoriteStore.removeFromFavorite(props.product._id)"
+      @click="favoriteStore.removeFromFavorite(props.product.id)"
       class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
     >
       <HeartIcon class="w-5 h-5 text-red-700" />
     </button>
     <button
       :disabled="isAlreadyInCart"
-      @click="cartStore.addToCart(props.product)"
+      @click="cartStore.addToCart(currentProduct)"
       class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition cursor-pointer disabled:bg-gray-600 disabled:cursor-not-allowed"
     >
       <ShoppingCartIcon class="w-5 h-5" />

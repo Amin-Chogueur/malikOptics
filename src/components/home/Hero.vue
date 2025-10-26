@@ -4,33 +4,34 @@
   >
     <div class="flex-1 space-y-6">
       <h1 class="text-2xl md:text-4xl font-extrabold leading-tight">
-        Discover the Latest
-        <span class="text-[#2563eb] dark:text-[#60a5fa]">Smartphones</span>,
+        Découvrez les dernières
+        <span class="text-[#2563eb] dark:text-[#60a5fa]">lunettes de vue</span>,
         <br />
-        <span class="text-[#2563eb] dark:text-[#60a5fa]">Watches</span>, and
-        <span class="text-[#2563eb] dark:text-[#60a5fa]">Protection</span>
-        Accessories
+        <span class="text-[#2563eb] dark:text-[#60a5fa]"
+          >lunettes de soleil</span
+        >, et
+        <span class="text-[#2563eb] dark:text-[#60a5fa]">lentilles</span>
       </h1>
 
       <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl">
-        Upgrade your lifestyle with high-quality tech essentials. Explore our
-        exclusive collection of phones, smartwatches, and stylish protection
-        cases that combine innovation with elegance.
+        Améliorez votre style de vie avec des accessoires de haute qualité.
+        Explorez notre collection exclusive de téléphones, montres connectées et
+        étuis de protection élégants qui allient innovation et sophistication.
       </p>
 
       <div class="flex flex-wrap items-center gap-4">
         <RouterLink
-          to="/products"
+          to="/Homme"
           class="bg-[#2563eb] hover:bg-[#1d4ed8] dark:bg-[#3b82f6] dark:hover:bg-[#2563eb] text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
         >
-          Shop Now
+          Acheter Maintenant
         </RouterLink>
 
         <RouterLink
-          to="/about"
+          to="/A_propos"
           class="border border-[#2563eb] dark:border-[#60a5fa] text-[#2563eb] dark:text-[#60a5fa] hover:bg-[#2563eb] hover:text-white dark:hover:bg-[#60a5fa] dark:hover:text-[#0b1120] font-medium py-3 px-6 rounded-lg transition-colors duration-300"
         >
-          Learn More
+          En Savoir Plus
         </RouterLink>
       </div>
     </div>
@@ -38,31 +39,10 @@
     <!-- Image Section -->
     <div class="flex-1 flex justify-center items-center relative">
       <img
-        src="https://www.macworld.com/wp-content/uploads/2023/01/android-wear-iphone-lead-100728986-orig.jpg?quality=50&strip=all"
-        alt="Latest smartphones and accessories"
-        class="w-full max-w-md rounded-2xl shadow-2xl object-cover floating"
+        src="/images/hero.webp"
+        alt="glasses"
+        class="w-full h-80 md:h-120 max-w-md rounded-2xl"
       />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"
-      ></div>
     </div>
   </section>
 </template>
-
-<style scoped>
-@keyframes floating {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-22px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.floating {
-  animation: floating 3s ease-in-out infinite;
-}
-</style>

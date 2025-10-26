@@ -1,56 +1,65 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <template>
   <section class="py-16 transition-colors duration-300">
     <h2
       class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-gray-100"
     >
-      Shop by Category
+      Acheter par Catégorie
     </h2>
+
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-      <!-- Smartphones -->
-      <div
+      <!-- Hommes -->
+      <RouterLink
+        to="/Homme"
         class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
       >
         <img
-          src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
-          alt="Smartphones"
+          src="/images/homme.webp"
+          alt="Lunettes Hommes"
           class="rounded-md mb-4 w-full h-56 object-cover"
         />
-        <h3 class="text-xl font-semibold mb-2">Smartphones</h3>
+        <h3 class="text-xl font-semibold mb-2">Hommes</h3>
         <p class="text-gray-500 dark:text-gray-400">
-          Discover the newest models with unbeatable prices.
+          Découvrez notre collection de lunettes de vue et lunettes de soleil
+          pour hommes.
         </p>
-      </div>
+      </RouterLink>
 
-      <!-- Smartwatches -->
-      <div
+      <!-- Femmes -->
+      <RouterLink
+        to="/Femme"
         class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
       >
         <img
-          src="https://images.unsplash.com/photo-1617625802912-cde586faf331?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnR3YXRjaHxlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
-          alt="Smartwatches"
+          src="/images/femme.webp"
+          alt="Lunettes Femmes"
           class="rounded-md mb-4 w-full h-56 object-cover"
         />
-        <h3 class="text-xl font-semibold mb-2">Smartwatches</h3>
+        <h3 class="text-xl font-semibold mb-2">Femmes</h3>
         <p class="text-gray-500 dark:text-gray-400">
-          Track your fitness and style with modern designs.
+          Trouvez des lunettes de vue tendance, élégantes lunettes de soleil et
+          lentilles pour femmes.
         </p>
-      </div>
+      </RouterLink>
 
-      <!-- Phone -->
-      <div
+      <!-- Enfants -->
+      <RouterLink
+        to="/Enfant"
         class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
       >
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWcgNFbSEtcWayMzSzf1IXL1r4LfqGxeBCHw&s"
-          alt="Accessories"
+          src="/images/enfant.webp"
+          alt="Lunettes Enfants"
           class="rounded-md mb-4 w-full h-56 object-cover"
         />
-        <h3 class="text-xl font-semibold mb-2">Phone Case</h3>
+        <h3 class="text-xl font-semibold mb-2">Enfants</h3>
         <p class="text-gray-500 dark:text-gray-400">
-          Protect your devices with high-quality covers and more.
+          Protégez les yeux des plus jeunes avec des lunettes de soleil,
+          lunettes de vue et lentilles colorées pour enfants.
         </p>
-      </div>
+      </RouterLink>
     </div>
   </section>
 </template>

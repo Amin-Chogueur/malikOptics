@@ -8,13 +8,13 @@ const cartStore = useCartStore();
 
 <template>
   <section
-    class="min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500 mt-14 px-2 lg:px-8"
+    class="min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500 mt-14"
   >
     <!-- Page Header -->
     <h2
       class="text-3xl font-bold text-center text-blue-600 dark:text-blue-400 mb-10"
     >
-      Your Shopping Cart
+      Votre panier
     </h2>
 
     <!-- Grid Layout: Cart Items + Checkout -->
@@ -23,7 +23,9 @@ const cartStore = useCartStore();
       <div
         class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow p-2"
       >
-        <h3 class="text-xl font-semibold mb-4 border-b pb-2">Cart Items</h3>
+        <h3 class="text-xl font-semibold mb-4 border-b pb-2">
+          Articles dans le panier
+        </h3>
 
         <div v-if="cartStore.cart.length" class="space-y-4">
           <CartItem
@@ -34,7 +36,7 @@ const cartStore = useCartStore();
         </div>
 
         <div v-else class="text-center py-6 text-gray-500">
-          Your cart is empty 🛒
+          Votre panier est vide 🛒
         </div>
       </div>
 
@@ -43,12 +45,12 @@ const cartStore = useCartStore();
         class="bg-white dark:bg-gray-800 rounded-2xl shadow p-2 h-fit sticky top-24"
       >
         <h3 class="text-xl font-semibold mb-4 border-b pb-2">
-          Checkout Details
+          Détails de la Commande
         </h3>
 
         <!-- Summary -->
         <div class="flex justify-between text-sm mb-3">
-          <span>Total Items:</span>
+          <span> Nombre total d’articles :</span>
           <span>{{ cartStore.cart.length }}</span>
         </div>
 

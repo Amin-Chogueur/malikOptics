@@ -9,8 +9,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 async function getProducts() {
   try {
-    const res = await axios.get(apiUrl);
-    return res.data.slice(0, 46);
+    const res = await axios.get(`${apiUrl}?category=Homme`);
+    return res.data;
   } catch (error) {
     console.error("Error fetching products:", error);
     throw new Error("Failed to load products. Please try again later.");
@@ -19,7 +19,7 @@ async function getProducts() {
 
 // Query
 const { isPending, isError, data, error } = useQuery({
-  queryKey: ["products"],
+  queryKey: ["men"],
   queryFn: getProducts,
   staleTime: 600000,
 });
@@ -30,7 +30,7 @@ const { isPending, isError, data, error } = useQuery({
     class="min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500 py-20"
   >
     <div class="mb-16">
-      <h2 class="text-3xl font-semibold text-center">Nos Produits</h2>
+      <h2 class="text-3xl font-semibold text-center">Nos Lunettes</h2>
 
       <transition name="fade" mode="out-in">
         <!-- Loading -->

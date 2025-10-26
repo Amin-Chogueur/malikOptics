@@ -9,16 +9,16 @@ export const useFavoriteStore = defineStore(
     const favorite = ref([]);
 
     function addToFavorite(product) {
-      const isExist = favorite.value?.find((item) => item.id === product._id);
+      const isExist = favorite.value?.find((item) => item.id === product.id);
       if (isExist) {
         return;
       } else {
         favorite.value.push(product);
-        toast.success("✅ Product added to wishlist successfully!");
+        toast.success("Produit ajouté à la liste de souhaits avec succès !");
       }
     }
     function removeFromFavorite(id) {
-      favorite.value = favorite.value.filter((item) => item._id !== id);
+      favorite.value = favorite.value.filter((item) => item.id !== id);
     }
 
     return {
@@ -33,7 +33,7 @@ export const useFavoriteStore = defineStore(
       enabled: true,
       strategies: [
         {
-          key: "vuephone-favorite",
+          key: "vueGlasses-favorite",
           storage: localStorage,
         },
       ],
