@@ -1,9 +1,7 @@
 <script setup>
-import { RouterLink, useRoute } from "vue-router";
+import { RouterLink } from "vue-router";
 import ActionsButton from "../ui/ActionsButton.vue";
 import { computed, ref } from "vue";
-
-const route = useRoute();
 
 const props = defineProps({
   product: {
@@ -50,7 +48,7 @@ const currentImage = computed(() => {
         class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex justify-center items-end transition-opacity duration-500 pb-5"
       >
         <RouterLink
-          :to="`${pro}/${props.product.id}`"
+          :to="`${props.product.category}/${props.product.id}`"
           class="bg-white text-gray-900 hover:bg-blue-600 hover:text-white font-semibold px-5 py-2 rounded-xl shadow-md transition-all duration-300"
         >
           See Details
