@@ -102,7 +102,7 @@ const currentImage = computed(() => {
       <!-- Price and Actions -->
       <div class="mt-auto flex justify-between items-center">
         <span class="text-lg font-bold text-blue-600 dark:text-blue-400">
-          ${{ props.product.price }}
+          ${{ props.product.price.toFixed(2) }}
         </span>
 
         <ActionsButton :product="props.product" :currentColor="currentColor" />
@@ -110,3 +110,10 @@ const currentImage = computed(() => {
     </div>
   </div>
 </template>
+<style scoped>
+@media (max-width: 767px) {
+  .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
+}
+</style>

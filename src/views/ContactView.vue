@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import FormContact from "@/components/contact/FormContact.vue";
+</script>
 <template>
   <section class="py-20">
     <div class="max-w-6xl mx-auto text-center">
@@ -89,58 +91,7 @@
         </div>
 
         <!-- Contact Form -->
-        <form
-          class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg space-y-6 text-left"
-        >
-          <div>
-            <label
-              for="name"
-              class="block text-gray-700 dark:text-gray-200 mb-2 font-medium"
-              >Nom</label
-            >
-            <input
-              type="text"
-              id="name"
-              placeholder="Votre nom"
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400"
-            />
-          </div>
-
-          <div>
-            <label
-              for="email"
-              class="block text-gray-700 dark:text-gray-200 mb-2 font-medium"
-              >Email</label
-            >
-            <input
-              type="email"
-              id="email"
-              placeholder="vous@example.com"
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400"
-            />
-          </div>
-
-          <div>
-            <label
-              for="message"
-              class="block text-gray-700 dark:text-gray-200 mb-2 font-medium"
-              >Message</label
-            >
-            <textarea
-              id="message"
-              rows="4"
-              placeholder="Écrivez votre message..."
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300"
-          >
-            Envoyer le message
-          </button>
-        </form>
+        <FormContact />
       </div>
     </div>
   </section>

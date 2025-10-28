@@ -107,7 +107,7 @@ watch(currentColor, (newColor) => {
             :key="color.name"
             @click="currentColor = color.name"
             :class="[
-              'w-9 h-9 rounded-full border-2 shadow transition-transform transform hover:scale-110',
+              'w-5 h-5 rounded-full border-2 shadow transition-transform transform hover:scale-110',
               currentColor === color.name
                 ? 'border-blue-600 ring-2 ring-blue-300'
                 : 'border-gray-300',
@@ -167,7 +167,7 @@ watch(currentColor, (newColor) => {
           <span
             class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
           >
-            ${{ data.price }}
+            ${{ data.price.toFixed(2) }}
           </span>
         </div>
 
