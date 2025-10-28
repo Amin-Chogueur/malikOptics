@@ -37,7 +37,7 @@
     </div>
 
     <!-- Image Section -->
-    <div class="flex-1 flex justify-center items-center relative">
+    <div class="flex-1 flex justify-center items-center">
       <img
         src="/images/hero.webp"
         alt="glasses"
