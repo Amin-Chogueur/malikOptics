@@ -39,7 +39,7 @@ const cartStore = useCartStore();
       <!-- Price -->
       <div class="mt-1">
         <span class="text-blue-600 dark:text-blue-400 font-bold"
-          >${{ props.item.price.toFixed(2) }}</span
+          >${{ props.item.price * props.item.quantity }}</span
         >
       </div>
     </div>
