@@ -2,7 +2,7 @@
 import { RouterLink } from "vue-router";
 </script>
 <template>
-  <section class="py-16 transition-colors duration-300 mt-[60px]">
+  <section class="py-16 transition-colors duration-300 mt-[120px] md:mt-0">
     <h2
       class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-gray-100"
     >
