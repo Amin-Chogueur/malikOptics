@@ -40,7 +40,7 @@ const currentImage = computed(() => {
         v-if="props.product.isNew"
         class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm"
       >
-        NEW
+        NOUVEAU
       </span>
 
       <!-- Overlay -->
@@ -51,7 +51,7 @@ const currentImage = computed(() => {
           :to="`${props.product.category}/${props.product.id}`"
           class="bg-white text-gray-900 hover:bg-blue-600 hover:text-white font-semibold px-5 py-2 rounded-xl shadow-md transition-all duration-300"
         >
-          See Details
+          Voir les détails
         </RouterLink>
       </div>
     </div>
@@ -68,7 +68,7 @@ const currentImage = computed(() => {
         class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-3"
       >
         <span
-          >Brand:
+          >Marque:
           <strong class="text-gray-700 dark:text-gray-200">{{
             props.product.brand
           }}</strong></span

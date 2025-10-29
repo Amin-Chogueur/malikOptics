@@ -3,7 +3,7 @@
   <div class="max-w-6xl mx-auto py-16 grid md:grid-cols-2 gap-10 items-center">
     <div>
       <img
-        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
+        src="/images/about.jpg"
         alt="Smartphones on desk"
         class="rounded-xl shadow-lg mb-4 w-full h-86"
       />
